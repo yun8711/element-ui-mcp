@@ -1,4 +1,4 @@
-import componentObject from '../data/components.json'
+import componentObject from '../data/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
@@ -29,9 +29,9 @@ export function registerListComponents(server: McpServer) {
       },
     },
     async () => {
-      const components = Object.values(componentObject.components)
+      const components = Object.values(componentObject)
       const list = components.map(component => ({
-        tagName: component.name,
+        tagName: component.tagName,
         description: component.description,
         docUrl: component.docUrl,
       }))

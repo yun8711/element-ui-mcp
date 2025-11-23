@@ -14,12 +14,12 @@ export function createServer() {
   const __dirname = path.dirname(__filename);
   const VERSION = (
     JSON.parse(
-      fs.readFileSync(path.join(__dirname, 'package.json'), 'utf8'),
+      fs.readFileSync(path.join(__dirname, '../package.json'), 'utf8'),
     ) as { version: string }
   ).version;
 
   const server = new McpServer({
-    name: 'kd-fe-mcp',
+    name: 'element-ui-mcp',
     version: VERSION,
   });
 

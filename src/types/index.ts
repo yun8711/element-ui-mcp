@@ -41,18 +41,11 @@ export interface ComponentSlot {
 
 // 最终组件统一模型
 export interface ComponentModel {
-  name: string // el-avatar (实际使用的组件名)
+  tagName: string // el-avatar (实际使用的组件名)
   description?: string // 中文说明（来自 md）
   docUrl?: string // 中文文档URL
 
   props: ComponentProp[]
   events: ComponentEvent[]
   slots: ComponentSlot[]
-}
-
-// 整个组件库的数据模型
-export interface ComponentLibraryModel {
-  name: string
-  version: string
-  components: Record<string, ComponentModel>
 }

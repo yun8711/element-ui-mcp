@@ -1,4 +1,4 @@
-import componentObject from '../data/components.json'
+import componentObject from '../data/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
@@ -33,10 +33,10 @@ export function registerGetComponentProps(server: McpServer) {
       }),
     },
     async ({ tagName, propName }) => {
-      const component = componentObject.components[tagName]
+      const component = componentObject[tagName]
 
       if (!component) {
-        throw new Error(`Component "${tagName}" not found. Available components: ${Object.keys(componentObject.components).join(', ')}`)
+        throw new Error(`Component "${tagName}" not found. Available components: ${Object.keys(componentObject).join(', ')}`)
       }
 
       let resultProps = component.props || []

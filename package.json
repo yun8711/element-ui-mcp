@@ -1,16 +1,17 @@
 {
-  "name": "kd-fe-mcp",
+  "name": "element-ui-mcp",
   "version": "1.0.0",
-  "description": "kd-fe MCP Server",
+  "description": "Element-UI MCP Server",
   "type": "module",
   "main": "index.js",
   "types": "index.d.ts",
   "bin": {
-    "kd-fe-mcp": "stdio.js"
+    "element-ui-mcp": "stdio.js"
   },
   "scripts": {
     "build": "tsup",
-    "extract": "tsx srcipts/extract-docs.ts"
+    "extract": "tsx srcipts/extract-docs.ts",
+    "test": "tsx test-server.ts"
   },
   "keywords": [
     "mcp",
@@ -18,16 +19,14 @@
     "vue2",
     "ui components"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "liuyun.dev@qq.com",
+  "license": "MIT",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.22.0",
     "zod": "^3.25.76"
   },
   "devDependencies": {
-    "@mdui/mcp": "^2.1.0",
     "@types/node": "^24.10.1",
-    "mdui": "^2.1.4",
     "tsup": "^8.5.1",
     "tsx": "^4.20.6",
     "typescript": "^5.9.3"

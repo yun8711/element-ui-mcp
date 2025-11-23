@@ -1,4 +1,4 @@
-import componentObject from '../data/components.json'
+import componentObject from '../data/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
@@ -29,23 +29,23 @@ export function registerSearchComponents(server: McpServer) {
       }),
     },
     async ({ keyword, limit }) => {
-      const components = Object.values(componentObject.components)
+      const components = Object.values(componentObject)
 
       // 搜索匹配的组件
       const matchedComponents = components.filter(component => {
-        const nameMatch = component.name.toLowerCase().includes(keyword.toLowerCase())
+        const nameMatch = component.tagName.toLowerCase().includes(keyword.toLowerCase())
         const descMatch = component.description && component.description.toLowerCase().includes(keyword.toLowerCase())
         return nameMatch || descMatch
       })
 
       // 按标签名排序
-      matchedComponents.sort((a, b) => a.name.localeCompare(b.name))
+      matchedComponents.sort((a, b) => a.tagName.localeCompare(b.tagName))
 
       // 限制返回数量
       const resultComponents = limit ? matchedComponents.slice(0, limit) : matchedComponents
 
       const list = resultComponents.map(component => ({
-        tagName: component.name,
+        tagName: component.tagName,
         description: component.description,
         docUrl: component.docUrl,
       }))

@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
-import { createServer } from './index';
+import { createServer } from './index.js';
 
 async function main() {
   const server = createServer();
@@ -9,6 +9,6 @@ async function main() {
 }
 
 main().catch((err) => {
-  console.error('[mdui-mcp] fatal:', err);
+  console.error('[element-ui-mcp] fatal:', err);
   process.exit(1);
 });

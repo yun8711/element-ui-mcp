@@ -1,4 +1,4 @@
-import componentObject from '../data/components.json'
+import componentObject from '../data/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 import fs from 'node:fs'
@@ -34,10 +34,10 @@ export function registerGetComponent(server: McpServer) {
       }),
     },
     async ({ tagName }) => {
-      const component = componentObject.components[tagName]
+      const component = componentObject[tagName]
 
       if (!component) {
-        throw new Error(`Component "${tagName}" not found. Available components: ${Object.keys(componentObject.components).join(', ')}`)
+        throw new Error(`Component "${tagName}" not found. Available components: ${Object.keys(componentObject).join(', ')}`)
       }
 
       // 读取示例代码（MD文件）
@@ -63,7 +63,7 @@ export function registerGetComponent(server: McpServer) {
       }
 
       const result = {
-        tagName: component.name,
+        tagName: component.tagName,
         description: component.description,
         docUrl: component.docUrl,
         props: component.props || [],
