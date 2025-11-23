@@ -1,26 +1,41 @@
 {
   "name": "element-ui-mcp",
   "version": "1.0.0",
-  "description": "Element-UI MCP Server",
+  "description": "MCP server providing comprehensive Element-UI Vue 2.15.14 component documentation and information",
   "type": "module",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "dist/index.js",
   "bin": {
-    "element-ui-mcp": "stdio.js"
+    "element-ui-mcp": "dist/stdio.js"
   },
   "scripts": {
-    "build": "tsup",
+    "build": "tsup && tsx scripts/copy-data.ts",
     "extract": "tsx srcipts/extract-docs.ts",
-    "test": "tsx test-server.ts"
+    "test": "tsx test-server.ts",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "mcp",
+    "model-context-protocol",
     "element-ui",
     "vue2",
-    "ui components"
+    "ai-assistant"
   ],
   "author": "liuyun.dev@qq.com",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yun8711/element-ui-mcp.git"
+  },
+  "homepage": "https://github.com/yun8711/element-ui-mcp#readme",
+  "bugs": {
+    "url": "https://github.com/yun8711/element-ui-mcp/issues"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "README.zh-CN.md",
+    "LICENSE"
+  ],
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.22.0",
     "zod": "^3.25.76"
@@ -33,5 +48,9 @@
   },
   "engines": {
     "node": ">=16.0.0"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
   }
 }

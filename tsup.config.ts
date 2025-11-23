@@ -1,8 +1,12 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['./src/**/*.ts'],
-  external:['./src/types/'],
+  entry: [
+    './src/index.ts',
+    './src/stdio.ts',
+    './src/tools/**/*.ts',
+  ],
+  external:['./src/types/', './src/data/'],
   format: ['esm'],
   clean: true,
   splitting: true, // 启用代码分割
