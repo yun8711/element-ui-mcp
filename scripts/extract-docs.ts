@@ -13,12 +13,17 @@ import {
 // =============================================
 // 本项目绝对路径
 const projectPath = resolve(dirname(fileURLToPath(import.meta.url)), '../')
+// 本地element-ui源码路径
 const ELEMENT_SRC = resolve(projectPath, '../../opensource/element')
+// element-ui组件目录
 const COMPONENTS_DIR = join(ELEMENT_SRC, 'packages')
+// element-ui中文文档目录
 const DOCS_DIR_ZH = join(ELEMENT_SRC, 'examples/docs/zh-CN')
+// element-ui web-types.json路径
 const WEB_TYPES_PATH = join(ELEMENT_SRC, 'web-types.json')
-// 输出
+// 输出组件数据文件路径
 const OUTPUT = resolve(projectPath, 'src/data/components.js')
+// 输出文档文件路径
 const DOCS_OUTPUT_DIR = resolve(projectPath, 'src/data/docs')
 
 // =========================================================

@@ -1,6 +1,6 @@
 {
   "name": "element-ui-mcp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "MCP server providing comprehensive Element-UI Vue 2.15.14 component documentation and information",
   "type": "module",
   "main": "dist/index.js",

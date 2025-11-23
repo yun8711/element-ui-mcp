@@ -26,7 +26,6 @@ function parseExamples(markdownContent: string) {
     if (endIndex === -1) continue
 
     const demoContent = section.substring(0, endIndex)
-    const remainingContent = section.substring(endIndex + 3)
 
     // 提取标题和描述
     const lines = demoContent.trim().split('\n')
