@@ -26,7 +26,7 @@ I hope it will be useful in your daily development and save more time for fellow
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/element-ui-mcp.git
+git clone https://github.com/yun8711/element-ui-mcp.git
 cd element-ui-mcp
 
 # Install dependencies
