@@ -18,9 +18,5 @@ export default defineConfig({
   bundle: false, // 不打包成单个文件，保持模块化
   esbuildOptions(options) {
     options.charset = 'utf8' // 添加这行来保留中文字符
-      options.define = {
-        'process.env.VERSION': `"${require('./package.json').version}"`,
-        'process.env.IS_BUILD': "true"
-    }
   }
 })
