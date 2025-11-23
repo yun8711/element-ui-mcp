@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "tsup && tsx scripts/copy-data.ts",
-    "extract": "tsx srcipts/extract-docs.ts",
+    "extract": "tsx scripts/extract-docs.ts",
     "test": "tsx test-server.ts",
     "prepublishOnly": "npm run build"
   },
