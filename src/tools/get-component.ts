@@ -1,4 +1,4 @@
-import componentObject from '../data/components.js'
+import componentObject from '../metadata/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 import fs from 'node:fs'
@@ -27,9 +27,10 @@ export function registerGetComponent(server: McpServer) {
         description: z.string().describe('组件描述'),
         docUrl: z.string().url().describe('组件文档URL'),
         props: z.any().describe('组件属性列表'),
-        events: z.any().describe('组件事件列表'),
         slots: z.any().describe('组件插槽列表'),
-        docContent: z.string().describe('组件文档内容'),
+        methods: z.any().describe('组件方法(Methods)列表'),
+        events: z.any().describe('组件事件(Events)列表'),
+        examples: z.string().describe('组件用法示例文档内容'),
         dts: z.string().describe('组件的TypeScript类型定义'),
       }),
     },
@@ -41,20 +42,20 @@ export function registerGetComponent(server: McpServer) {
       }
 
       // 读取示例代码（MD文件）
-      let docContent = ''
+      let examples = ''
       try {
         const mdPath = path.join(__dirname, '../data/docs', `${tagName}.md`)
         if (fs.existsSync(mdPath)) {
-          docContent = fs.readFileSync(mdPath, 'utf8')
+          examples = fs.readFileSync(mdPath, 'utf8')
         }
       } catch (error) {
-        console.warn(`Failed to read docContent for ${tagName}:`, error)
+        console.warn(`Failed to read examples for ${tagName}:`, error)
       }
 
       // 读取类型定义（DTS文件）
       let dts = ''
       try {
-        const dtsPath = path.join(__dirname, '../data/docs', `${tagName}.d.ts`)
+        const dtsPath = path.join(__dirname, '../examples', `${tagName}.d.ts`)
         if (fs.existsSync(dtsPath)) {
           dts = fs.readFileSync(dtsPath, 'utf8')
         }
@@ -69,7 +70,8 @@ export function registerGetComponent(server: McpServer) {
         props: component.props || [],
         events: component.events || [],
         slots: component.slots || [],
-        docContent,
+        methods: component.methods || [],
+        examples,
         dts: dts,
       }
 

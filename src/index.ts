@@ -8,6 +8,8 @@ import { registerSearchComponents } from './tools/search-components.js';
 import { registerGetComponentExamples } from './tools/get-component-examples.js';
 import { registerGetComponentProps } from './tools/get-component-props.js';
 import { registerGetComponentEvents } from './tools/get-component-events.js';
+import { registerGetComponentSlots } from './tools/get-component-slots.js';
+import { registerGetComponentMethods } from './tools/get-component-methods.js';
 
 export function createServer() {
   const __filename = fileURLToPath(import.meta.url);
@@ -30,6 +32,8 @@ export function createServer() {
   registerGetComponentExamples(server);
   registerGetComponentProps(server);
   registerGetComponentEvents(server);
+  registerGetComponentSlots(server);
+  registerGetComponentMethods(server);
 
   return server;
 }

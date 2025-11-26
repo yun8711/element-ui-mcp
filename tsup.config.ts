@@ -5,14 +5,15 @@ export default defineConfig({
     './src/index.ts',
     './src/stdio.ts',
     './src/tools/**/*.ts',
+    './src/metadata/**/*.ts',
   ],
-  external:['./src/types/', './src/data/'],
+  external:['./src/types/', './src/examples/'],
   format: ['esm'],
   clean: true,
   splitting: true, // 启用代码分割
   treeshake: true, // 启用 tree shaking
   target: 'es2022',
-  minify: false,
+  minify: true,
   platform: 'node',
   // 保留目录结构的关键配置
   bundle: false, // 不打包成单个文件，保持模块化

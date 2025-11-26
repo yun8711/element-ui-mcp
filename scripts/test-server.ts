@@ -38,44 +38,64 @@ try {
   Array.isArray(searchResult.content) && console.log(searchResult.content[0].text);
 
   // 测试 3: 获取组件详情
-  console.log("\n--- 测试 3: 获取 el-button 组件详情 ---");
+  console.log("\n--- 测试 3: 获取 el-tree 组件详情 ---");
   const componentDetail = await client.callTool({
     name: "get_component",
     arguments: {
-      tagName: "el-button",
+      tagName: "el-tree",
     },
   });
   Array.isArray(componentDetail.content) && console.log("组件详情获取成功，数据长度:", componentDetail.content[0].text.length);
 
   // 测试 4: 获取组件属性
-  console.log("\n--- 测试 4: 获取 el-button 组件属性 ---");
+  console.log("\n--- 测试 4: 获取 el-tree 组件属性 ---");
   const componentProps = await client.callTool({
     name: "get_component_props",
     arguments: {
-      tagName: "el-button",
+      tagName: "el-tree",
     },
   });
   Array.isArray(componentProps.content) && console.log("组件属性获取成功，数据长度:", componentProps.content[0].text.length);
 
   // 测试 5: 获取组件事件
-  console.log("\n--- 测试 5: 获取 el-button 组件事件 ---");
+  console.log("\n--- 测试 5: 获取 el-tree 组件事件 ---");
   const componentEvents = await client.callTool({
     name: "get_component_events",
     arguments: {
-      tagName: "el-button",
+      tagName: "el-tree",
     },
   });
   Array.isArray(componentEvents.content) && console.log("组件事件获取成功，数据长度:", componentEvents.content[0].text.length);
 
   // 测试 6: 获取组件示例
-  console.log("\n--- 测试 6: 获取 el-button 组件示例 ---");
+  console.log("\n--- 测试 6: 获取 el-tree 组件示例 ---");
   const componentExamples = await client.callTool({
     name: "get_component_examples",
     arguments: {
-      tagName: "el-button",
+      tagName: "el-tree",
     },
   });
   Array.isArray(componentExamples.content) && console.log("组件示例获取成功，数据长度:", componentExamples.content[0].text.length);
+
+  // 测试 7: 获取组件插槽
+  console.log("\n--- 测试 7: 获取 el-alert 组件插槽 ---");
+  const componentSlots = await client.callTool({
+    name: "get_component_slots",
+    arguments: {
+      tagName: "el-alert",
+    },
+  });
+  Array.isArray(componentSlots.content) && console.log("组件插槽获取成功，数据长度:", componentSlots.content[0].text.length);
+
+  // 测试 8: 获取组件方法
+  console.log("\n--- 测试 8: 获取 el-tree 组件方法 ---");
+  const componentMethods = await client.callTool({
+    name: "get_component_methods",
+    arguments: {
+      tagName: "el-tree",
+    },
+  });
+  Array.isArray(componentMethods.content) && console.log("组件方法获取成功，数据长度:", componentMethods.content[0].text.length);
 
   console.log("\n✅ 所有测试完成！");
 } catch (error) {

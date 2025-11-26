@@ -1,4 +1,4 @@
-import componentObject from '../data/components.js'
+import componentObject from '../metadata/components.js'
 import type { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 

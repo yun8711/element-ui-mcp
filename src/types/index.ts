@@ -38,6 +38,15 @@ export interface ComponentSlot {
   props?: Record<string, TypeInfo> // slot-scope 参数
 }
 
+// Methods
+export interface ComponentMethod {
+  name: string
+  description?: string
+  parameters?: TypeInfo[] // 方法参数
+  returnType?: TypeInfo // 返回类型
+  ts?: string // TypeScript 签名
+}
+
 
 // 最终组件统一模型
 export interface ComponentModel {
@@ -48,4 +57,5 @@ export interface ComponentModel {
   props: ComponentProp[]
   events: ComponentEvent[]
   slots: ComponentSlot[]
+  methods: ComponentMethod[]
 }
